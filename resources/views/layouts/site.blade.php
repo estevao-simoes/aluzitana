@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
-<body id="home">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-gray fixed-top">
+<body id="home" data-spy="scroll" data-target="#navbar" data-offset="110">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-gray fixed-top">
         <div class="container py-3">
-            <a class="navbar-brand" href="#home">
+            <a class="navbar-brand" href="{{ Request::is('/') ? '#home' : route('home') }}">
                 <img src="{{ asset('img/Objeto-Inteligente-de-Vetor.png') }}" width="220px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,24 +34,24 @@
             <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
                 <ul class="navbar-nav" class="ml-auto">
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#home' : route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="#ofertas">Ofertas</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#ofertas' : route('home') . '#ofertas' }}">Ofertas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="#adega">Adega</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#novidades' : route('home') . '#novidades' }}">Novidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="#novidades">Novidades</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#lojas' : route('home') . '#lojas' }}">Lojas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="#lojas">Lojas</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ route('beautyMarket') }}">A empresa</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item text-center">
-                        <a href="{{ route('beautyMarket') }}" class="mx-auto">
+                        <a href="#" class="mx-auto">
                             <img src="{{ asset('img/Vector-Smart-Object.png') }}" width="100px" class="img-fluid">
                         </a>
                     </li>

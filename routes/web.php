@@ -12,9 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/beauty-market', 'BeautyMarketController@index')->name('beautyMarket');
+Route::get('/a-empresa', 'BeautyMarketController@index')->name('beautyMarket');
 Route::post('/contato', 'ContatoController@store')->name('contato');
 
 Auth::routes();
-
-Route::get('/home', 'Dashboard\HomeController@index')->name('home');
+// Route::get('/home', 'Dashboard\HomeController@index')->name('home');

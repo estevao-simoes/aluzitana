@@ -10472,7 +10472,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   margin-bottom: 60px;
   margin-top: 102.41px;
@@ -10483,7 +10483,7 @@ body {
 }
 
 .font-family-dosis {
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
 
 .line-height-short {
@@ -10595,6 +10595,18 @@ a:focus {
   color: #6e3593;
 }
 
+.navbar-dark .navbar-nav .nav-link:hover {
+  font-weight: bold !important;
+  color: #fece28 !important;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #fece28 !important;
+}
+
 .slick-next:before,
 .slick-prev:before {
   font-size: 40px;
@@ -10627,7 +10639,7 @@ small {
 }
 
 .form-group > label {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .btn-danger {
