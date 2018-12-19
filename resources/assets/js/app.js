@@ -66,6 +66,8 @@ $(window).ready(function () {
         dots: true,
         infinite: true,
         speed: 800,
+        useTransform: false,
+        easing: 'swing',
         autoplay: true,
         autoplaySpeed: 5000,
         slidesToShow: 1,
@@ -79,6 +81,7 @@ $(window).ready(function () {
         autoplaySpeed: 5000,
         slidesToShow: 1,
     });
+
 });
 
 $(document).ready(function () {

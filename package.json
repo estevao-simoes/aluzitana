@@ -19,5 +19,9 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.7",
         "slick-carousel": "^1.8.1"
+    },
+    "dependencies": {
+        "lightbox2": "^2.10.0",
+        "sortablejs": "^1.7.0"
     }
 }

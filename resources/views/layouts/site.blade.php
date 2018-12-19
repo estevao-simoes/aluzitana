@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
-    <title>Luzitana</title>
+    <title>Supermercado A Luzitana</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,14 +16,14 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-
+    @yield('css')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body id="home" data-spy="scroll" data-target="#navbar" data-offset="110">
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-gray fixed-top">
         <div class="container py-3">
-            <a class="navbar-brand" href="{{ Request::is('/') ? '#home' : route('home') }}">
+            <a class="navbar-brand" href="{{ Request::is('/') ? '#home' : route('site.home') }}">
                 <img src="{{ asset('img/Objeto-Inteligente-de-Vetor.png') }}" width="220px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,24 +34,24 @@
             <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
                 <ul class="navbar-nav" class="ml-auto">
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#home' : route('home') }}">Home <span class="sr-only">(current)</span></a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#home' : route('site.home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#ofertas' : route('home') . '#ofertas' }}">Ofertas</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#ofertas' : route('site.home') . '#ofertas' }}">Ofertas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#novidades' : route('home') . '#novidades' }}">Novidades</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#novidades' : route('site.home') . '#novidades' }}">Novidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#lojas' : route('home') . '#lojas' }}">Lojas</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ Request::is('/') ? '#lojas' : route('site.home') . '#lojas' }}">Lojas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ route('beautyMarket') }}">A empresa</a>
+                        <a class="text-white font-weight-black font-family-dosis text-uppercase nav-link" href="{{ route('site.about') }}">A empresa</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item text-center">
-                        <a href="#" class="mx-auto">
+                        <a href="{{ route('site.beautyMarket') }}" class="mx-auto">
                             <img src="{{ asset('img/Vector-Smart-Object.png') }}" width="100px" class="img-fluid">
                         </a>
                     </li>
@@ -88,7 +88,7 @@
                     </p>
                 </div>
             </div>
-            <form class="row pb-5 pt-4 " action="{{ route('contato') }}" method="post">
+            <form class="row pb-5 pt-4 " action="{{ route('site.contato') }}" method="post">
                 {{ csrf_field() }}
                 <div class="col-md-6">
                     <div class="form-group">
@@ -251,6 +251,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @yield('js')
     @if ($errors->any())
         @foreach ($errors as $error)
         @endforeach

@@ -225,11 +225,10 @@
 
     <div id="adega" class="container">
         <div class="row mt-5">
-            <div class="col-md-6 mb-3">
-                <img src="{{ asset('img/compra-programada.png') }}" class="w-100" alt="">
-            </div>
-            <div class="col-md-6 mb-3">
-                <img src="{{ asset('img/clube-vantagens.png') }}" class="w-100" alt="">
+            <div class="col-md-12 mb-3">
+                <a href="{{ route('site.compraProgramada') }}">
+                    <img src="{{ asset('img/banner Site compra programada.png') }}" class="w-100" alt="">
+                </a>
             </div>
         </div>
         <div class="row mt-3">

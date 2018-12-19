@@ -10502,6 +10502,14 @@ body {
   background-color: #151516;
 }
 
+.bg-gradient-compra {
+  background-image: linear-gradient(150deg, #f6ac64 0%, #dc4056 100%);
+}
+
+.bg-wine {
+  background-color: #5f0f15;
+}
+
 a {
   color: inherit;
 }
@@ -10624,6 +10632,14 @@ a:focus {
   left: 15%;
 }
 
+.slick-track,
+.slick-list {
+  perspective: 2000;
+  backface-visibility: hidden;
+  -webkit-perspective: 2000;
+  -webkit-backface-visibility: hidden;
+}
+
 .slick-slide img {
   display: inline;
 }
@@ -10645,5 +10661,30 @@ small {
 .btn-danger {
   background-color: #c4161c;
   border-color: #c4161c;
+}
+
+.about-content img {
+  max-width: 100%;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.font-beauty {
+  font-family: 'Amatic SC', cursive;
+}
+
+.text-pink {
+  color: #ca8c94;
+}
+
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
 }
 

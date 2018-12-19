@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Analytics;
+use Spatie\Analytics\Period;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // $analytics = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        // dd($analytics);
+        return view('dashboard.home');
     }
 }
