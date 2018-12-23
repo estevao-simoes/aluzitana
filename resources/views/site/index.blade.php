@@ -213,7 +213,7 @@
 
     <div class="container-fluid mt-5">
         <div class="row">
-            <a href="#">
+            <a href="{{ route('site.beautyMarket') }}">
                 <picture>
                     <source media="(max-width: 650px)" srcset="{{ asset('img/banner2_mobile.png') }}">
                     <!-- <source media="(min-width: 465px)" srcset="img_white_flower.jpg"> -->
