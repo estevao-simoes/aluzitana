@@ -84,7 +84,7 @@
                         Contato
                     </p>
                     <p class="text-uppercase font-weight-normal text-white">
-                        Dúvidas, reclamações ou sugestões mande-nos um email.
+                        Dúvidas, reclamações ou sugestões: mande-nos um email.
                     </p>
                 </div>
             </div>

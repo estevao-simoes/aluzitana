@@ -22,9 +22,7 @@ class UsersTableSeeder extends Seeder
             'title' => 'Manage Users',
         ]);
 
-        $user = factory(App\User::class, 1)->create();
-
-        return $user->assign('admin');
+        return factory(App\User::class, 1)->create();
 
     }
 }

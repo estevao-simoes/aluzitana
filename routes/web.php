@@ -27,9 +27,7 @@ Route::get('/compra-programada', function () {
     return view('site.compraProgramada');
 })->name('site.compraProgramada');
 
-Route::get('/tabloide', function () {
-    return view('site.tabloide');
-})->name('site.tabloide');
+Route::get('/tabloide', 'TabloideController@index')->name('site.tabloide');
 
 
 //dashboard routes
@@ -41,6 +39,10 @@ Route::group([
     Route::get('/about', 'Dashboard\AboutController@index')->name('dashboard.about');
     Route::patch('/about', 'Dashboard\AboutController@update')->name('dashboard.about.update');
     Route::post('/about/banner', 'Dashboard\BannersController@store')->name('dashboard.about.banner');
-    Route::get('/tabloides', 'Dashboard\TabloidesController@index')->name('dashboard.tabloide');
+    Route::get('/tabloides', 'Dashboard\TabloideController@index')->name('dashboard.tabloide');
+    Route::post('/tabloides', 'Dashboard\TabloideController@store')->name('dashboard.tabloide.store');
+    Route::get('/tabloides/create', 'Dashboard\TabloideController@create')->name('dashboard.tabloide.create');
+    Route::get('/tabloide/{tabloide}', 'Dashboard\TabloideController@show')->name('dashboard.tabloide.show');
+    Route::delete('/tabloide/destroy/{tabloide}', 'Dashboard\TabloideController@destroy')->name('dashboard.tabloide.destroy');
     Route::get('/produtos', 'Dashboard\ProdutoController@index')->name('dashboard.produtos');
 });

@@ -37,7 +37,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-6 col-lg-3 mb-5">
-                <a class="d-block mw-100">
+                <a href="{{ route('site.tabloide') }}" class="d-block mw-100">
                     <div class="row">
                         <div class="col">
                             <!-- 230 X 280  -->
