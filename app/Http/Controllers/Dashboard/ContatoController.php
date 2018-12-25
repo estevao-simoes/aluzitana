@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\About;
+use App\Contato;
 use Illuminate\Http\Request;
-use App\Banner;
+use App\Http\Controllers\Controller;
 
-class AboutController extends Controller
+class ContatoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $this->about = About::all()->first();
-        $this->banners = Banner::ordered()->about()->get();
-
-        return view('site.about')->with([
-            'about' => $this->about,
-            'banners' => $this->banners,
+        return view('dashboard.contatos.list')->with([
+            'contatos' => Contato::all()
         ]);
     }
 
@@ -48,10 +44,10 @@ class AboutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\About  $About
+     * @param  \App\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function show(About $About)
+    public function show(Contato $contato)
     {
         //
     }
@@ -59,10 +55,10 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\About  $About
+     * @param  \App\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $About)
+    public function edit(Contato $contato)
     {
         //
     }
@@ -71,10 +67,10 @@ class AboutController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\About  $About
+     * @param  \App\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $About)
+    public function update(Request $request, Contato $contato)
     {
         //
     }
@@ -82,11 +78,12 @@ class AboutController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\About  $About
+     * @param  \App\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $About)
+    public function destroy(Contato $contato)
     {
-        //
+        $contato->delete();
+        return redirect()->back()->with('success', 'Contato apagado.');
     }
 }

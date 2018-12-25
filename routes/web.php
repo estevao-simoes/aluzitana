@@ -45,4 +45,7 @@ Route::group([
     Route::get('/tabloide/{tabloide}', 'Dashboard\TabloideController@show')->name('dashboard.tabloide.show');
     Route::delete('/tabloide/destroy/{tabloide}', 'Dashboard\TabloideController@destroy')->name('dashboard.tabloide.destroy');
     Route::get('/produtos', 'Dashboard\ProdutoController@index')->name('dashboard.produtos');
+    Route::get('/banners', 'Dashboard\BannersController@index')->name('dashboard.banners');
+    Route::delete('/banner/{banner}', 'Dashboard\BannersController@destroy')->name('dashboard.banners.destroy');
+    Route::get('/contatos', 'Dashboard\ContatoController@index')->name('dashboard.contato');
 });

@@ -15,7 +15,10 @@ class BannersController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Banner::home()->get());
+        return view('dashboard.banners.list')->with([
+            'banners' => Banner::home()->ordered()->get()
+        ]);
     }
 
     /**
@@ -31,6 +34,7 @@ class BannersController extends Controller
     public function sort(Request $request){
         return Banner::setNewOrder($request->order);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,16 +48,24 @@ class BannersController extends Controller
         ]);
 
         $path = $request->banner->store('uploads', 'public');
-
-        $uploadedImage = Banner::create([
+        
+        $storeArray = [
             'path' => $path,
             'title' => $request->title,
             'active' => $request->active ? 1 : 0,
-        ]);
+            'category' => $request->category,
+        ];
+
+        if($request->link){
+            $storeArray['link'] = $request->link;
+        }
+
+        $uploadedImage = Banner::create($storeArray);
 
         return redirect()->back()->with('success', 'Banner adicionado.');
 
     }
+
     /**
      * Display the specified resource.
      *
@@ -102,8 +114,9 @@ class BannersController extends Controller
      * @param  \App\Banners  $banners
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banners $banners)
+    public function destroy(Banner $banner)
     {
-        //
+        $banner->delete();
+        return redirect()->back()->with('success', 'Banner removido.');
     }
 }

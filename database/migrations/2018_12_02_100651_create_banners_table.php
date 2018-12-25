@@ -19,6 +19,8 @@ class CreateBannersTable extends Migration
             $table->string('path')->unique();
             $table->integer('order');
             $table->boolean('active')->default(true);
+            $table->integer('category')->nullable()->default(1);  //1 - about-banners, 2 - home-banners
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

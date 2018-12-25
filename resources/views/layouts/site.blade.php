@@ -16,6 +16,7 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet">
     @yield('css')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
@@ -93,15 +94,15 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="text-white small" for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="text" name="nome" id="nome" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label class="text-white small" for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="email" name="email" id="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label class="text-white small" for="telefone">Telefone</label>
-                        <input type="tel" name="telefone" id="telefone" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="tel" name="telefone" id="telefone" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex flex-column align-items-stretch justify-content-between">
@@ -114,21 +115,6 @@
                     </div>
                 </div>
             </form>
-            {{-- <div class="row py-5">
-                <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                      <strong></strong> 
-                      Mensagem enviada com sucesso!
-                    </div>
-                    
-                    <script>
-                      $(".alert").alert();
-                    </script>
-                </div>
-            </div> --}}
         </div>
     </div>
 
@@ -247,11 +233,23 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#telefone').mask('(00) 00000-0000', {placeholder: "(__) _____-____"});
+            $('#email').mask("A", {
+                translation: {
+                    "A": { pattern: /[\w@\-.+]/, recursive: true }
+                },
+                placeholder: "exemplo@exemplo.com"
+            });
+        });
+    </script>
+
     @yield('js')
+
     @if ($errors->any())
         @foreach ($errors as $error)
         @endforeach
@@ -263,7 +261,6 @@
             })
         </script>
     @endif
-    <script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 

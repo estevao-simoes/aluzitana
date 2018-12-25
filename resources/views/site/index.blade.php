@@ -5,20 +5,19 @@
         <div class="row">
             <div class="col px-0">
                 <div class="banner-carousel">
-                    <div>
-                        <picture>
-                            <source media="(max-width: 650px)" srcset="{{ asset('img/banner_mobile.png') }}">
-                            <!-- <source media="(min-width: 465px)" srcset="img_white_flower.jpg"> -->
-                            <img src="{{ asset('img/banner-black-label.png') }}" alt="Banner Black Label" class="img-fluid">
-                        </picture>
-                    </div>
-                    <div>
-                        <picture>
-                            <source media="(max-width: 650px)" srcset="{{ asset('img/banner_mobile.png') }}">
-                            <!-- <source media="(min-width: 465px)" srcset="img_white_flower.jpg"> -->
-                            <img src="{{ asset('img/banner-black-label.png') }}" alt="Banner Black Label" class="img-fluid">
-                        </picture>
-                    </div>
+                    @foreach ($banners as $banner)
+                        @if ($banner->link)
+                            <div>
+                                <a href="{{ $banner->link }}" target="_blank">
+                                    <img src="{{ asset($banner->path) }}" alt="{{ $banner->title }}" class="img-fluid">
+                                </a>
+                            </div>
+                        @else
+                            <div>
+                                <img src="{{ asset($banner->path) }}" alt="{{ $banner->title }}" class="img-fluid">
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>

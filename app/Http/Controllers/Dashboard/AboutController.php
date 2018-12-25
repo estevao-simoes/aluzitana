@@ -16,7 +16,7 @@ class AboutController extends Controller
     {   
         $this->middleware('auth');
         $this->about = About::all()->first();
-        $this->banners = Banner::ordered()->get();
+        $this->banners = Banner::about()->ordered()->get();
     }
 
     /**

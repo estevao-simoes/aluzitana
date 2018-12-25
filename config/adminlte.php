@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -125,9 +125,9 @@ return [
             'icon' => 'list'
         ],
         [
-            'text' => 'Contatos',
-            'url' => '/dashboard/contatos',
-            'icon' => 'envelope'
+            'text' => 'Banners',
+            'url' => '/dashboard/banners',
+            'icon' => 'picture-o'
         ],
         [
             'text' => 'Usuários',

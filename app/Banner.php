@@ -15,7 +15,15 @@ class Banner extends Model implements Sortable
     ];
 
     protected $fillable = [
-        'path', 'title', 'active'
+        'path', 'title', 'active', 'category', 'link'
     ];
+
+    public function scopeHome($query){
+        return $query->where('category', 2);
+    }
+
+    public function scopeAbout($query){
+        return $query->where('category', 1);
+    }
 
 }

@@ -10,9 +10,9 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" id="myTab">
                     <li class="active">
                         <a href="#conteudo" data-toggle="tab" aria-expanded="true">Conteúdo</a>
                     </li>
@@ -47,10 +47,10 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="body">Texto</label>
+                                            <label class="h4" for="body">Conteúdo</label>
                                             <textarea name="body" id="body" class="form-control">
-                                                    {!! $about->body !!}
-                                                </textarea>
+                                                {!! $about->body !!}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -80,6 +80,9 @@
                                         <th>
                                             Ativo
                                         </th>
+                                        <th>
+                                            Ação
+                                        </th>
                                     </thead>
                                     <tbody id="banners">
                                         @foreach ($banners as $banner)
@@ -99,6 +102,16 @@
                                                         <span class="slider round"></span>
                                                     </label>
                                                 </td>
+                                                <td style="width: 5%; vertical-align: middle; text-align: center;">
+                                                    <a href="#" onClick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir o banner?')){document.getElementById('delete-tabloide-{{ $banner->id }}').submit()}" data-toggle="tooltip" title="Apagar">
+                                                        <i class="fa fa-times text-danger fa-fw" aria-hidden="true"></i>
+                                                    </a>
+                                                    <form id="delete-tabloide-{{ $banner->id }}" action="{{ route('dashboard.banners.destroy', $banner->id) }}" class="hidden" method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('delete') }}
+                                                    </form>
+                                                </td>
+
                                             </tr>                                    
                                         @endforeach
                                     </tbody>
@@ -110,7 +123,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="box box-primary">
                 <div class="box-header with-border text-center">
                     <h3 class="h4 box-title">SEO</h3>
@@ -130,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>      
     <!-- Modal -->
     <div class="modal fade" id="addBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -157,13 +170,9 @@
                                 <input type="checkbox" name="active" id="active" checked> Ativo
                             </label>
                         </div>
-                        {{-- <div class="checkbox">
-                            <label>
-                            <input type="checkbox"> Check me out
-                            </label>
-                        </div> --}}
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="category" value="1">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
@@ -254,8 +263,10 @@
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script>
         $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip(); 
+
             var el = $('#banners')[0];
-            console.log(el);
+
             var sort = Sortable.create(el, {
                 group: "name",  // or { name: "...", pull: [true, false, clone], put: [true, false, array] }
                 sort: true,  // sorting inside list
@@ -306,6 +317,20 @@
                     checked ? toastr.success("Perfil ativado") : toastr.error("Perfil desativado")
                 });
             });
+            $('#myTab a').click(function(e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            // store the currently selected tab in the hash value
+            $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+                var id = $(e.target).attr("href").substr(1);
+                window.location.hash = id;
+            });
+
+            // on load of the page: switch to the currently selected tab
+            var hash = window.location.hash;
+            $('#myTab a[href="' + hash + '"]').tab('show');
         });
     </script>
 @endsection
