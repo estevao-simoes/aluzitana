@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Banner;
+use App\Produto;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('site.index')->with([
-            'banners' => Banner::ordered()->home()->get()
+            'banners' => Banner::ordered()->home()->where('active', 1)->get(),
+            'produtosRegular' => Produto::regular()->get(),
+            'produtoExclusive' => Produto::exclusive()->get()
         ]);
     }
 }

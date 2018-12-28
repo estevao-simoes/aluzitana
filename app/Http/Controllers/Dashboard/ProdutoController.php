@@ -73,7 +73,26 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        
+        $this->validate($request, [
+           'title' => 'required|min:5', 
+           'valor' => 'required|numeric',
+           'promocional' => 'required|numeric',
+           'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' 
+        ]);
+
+        $produto->title = $request->title;
+        $produto->valor = $request->valor;
+        $produto->promocional = $request->promocional;
+
+        if($request->picture){
+            $produto->image = $request->picture->store('products', 'public');
+        }
+
+        $produto->save();
+
+        return redirect()->back()->with('success', 'Produto atualizado.');
+
     }
 
     /**

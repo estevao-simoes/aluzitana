@@ -46,9 +46,13 @@
                                         <a href="mailto:{{ $contato->email }}?subject=Obrigado%20pelo%20contato%2C%20{{ $contato->nome }}" target="_top" style="margin: 0 10px">
                                             <i class="fa fa-reply text-primary" data-toggle="tooltip" title="Responder" aria-hidden="true"></i>
                                         </a>
-                                        <a href="#">
-                                            <i class="fa fa-times text-danger" data-toggle="tooltip" title="Apagar" aria-hidden="true"></i>
+                                        <a href="#" onClick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir o contato?')){document.getElementById('delete-contato-{{ $contato->id }}').submit()}" data-toggle="tooltip" title="Apagar">
+                                            <i class="fa fa-times text-danger fa-fw" aria-hidden="true"></i>
                                         </a>
+                                        <form id="delete-contato-{{ $contato->id }}" action="{{ route('dashboard.contato.destroy', $contato->id) }}" class="hidden" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

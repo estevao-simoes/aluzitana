@@ -76,5 +76,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>        
+        var base_url = "{{ env('APP_URL') }}";
+    </script>
 </body>
 </html>

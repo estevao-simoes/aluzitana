@@ -3,19 +3,13 @@
 @section('title', 'Página Inicial')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
 @stop
 
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Dashboard {{ env('APP_NAME') }}</h3>
-        <p>
-            {{ auth()->user()->getRoles() }}
-        </p>
-        <p>
-            {{ auth()->user()->getAbilities() }}
-        </p>
+        <h3 class="box-title">{{ env('APP_NAME') }}</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title=""
                 data-original-title="Collapse">

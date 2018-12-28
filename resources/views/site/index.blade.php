@@ -35,170 +35,49 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-sm-6 col-lg-3 mb-5">
-                <a href="{{ route('site.tabloide') }}" class="d-block mw-100">
-                    <div class="row">
-                        <div class="col">
-                            <!-- 230 X 280  -->
-                            <img src="{{ asset('img/vinho.png') }}" class="d-block mw-100 mx-auto">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-dark text-center font-weight-bold my-2">
-                                Canepa novíssimo Cabernet Sauvignon 2017
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                        <div class="col-4" style="line-height: 15px;">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="m-0">De</small>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="font-weight-black">R$ 30,40</span>
-                                </div>
+            @foreach ($produtosRegular as $produto)
+                <div class="col-sm-6 col-lg-3 mb-5">
+                    <a href="{{ route('site.tabloide') }}" class="d-block mw-100">
+                        <div class="row">
+                            <div class="col">
+                                <!-- 230 X 280  -->
+                                <img src="{{ asset($produto->image) }}" class="d-block mw-100 mx-auto">
                             </div>
                         </div>
-                        <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                            <p class="text-gold text-center m-0 p-1">
-                                <span class="small">
-                                    Por 
-                                </span>
-                                <span class="font-weight-black">
-                                    R$ 24,99
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-5">
-                <a class="d-block mw-100">
-                    <div class="row">
-                        <div class="col">
-                            <!-- 230 X 280  -->
-                            <img src="{{ asset('img/vinho2.png') }}" class="d-block mw-100 mx-auto">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-dark text-center font-weight-bold my-2">
-                                Canepa novíssimo Cabernet Sauvignon 2017
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                        <div class="col-4" style="line-height: 15px;">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="m-0">De</small>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="font-weight-black">R$ 30,40</span>
-                                </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-dark text-center font-weight-bold my-2" style="height: 45px">
+                                    {{ $produto->title }}
+                                </p>
                             </div>
                         </div>
-                        <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                            <p class="text-gold text-center m-0 p-1">
-                                <span class="small">
-                                    Por
-                                </span>
-                                <span class="font-weight-black">
-                                    R$ 24,99
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-5">
-                <a class="d-block mw-100">
-                    <div class="row">
-                        <div class="col">
-                            <!-- 230 X 280  -->
-                            <img src="{{ asset('img/vinho.png') }}" class="d-block mw-100 mx-auto">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-dark text-center font-weight-bold my-2">
-                                Canepa novíssimo Cabernet Sauvignon 2017
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                        <div class="col-4" style="line-height: 15px;">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="m-0">De</small>
+                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
+                            <div class="col-4" style="line-height: 15px;">
+                                <div class="row">
+                                    <div class="col">
+                                        <small class="m-0">De</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="font-weight-black">R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="font-weight-black">R$ 30,40</span>
-                                </div>
+                            <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
+                                <p class="text-gold text-center m-0 p-1">
+                                    <span class="small">
+                                        Por 
+                                    </span>
+                                    <span class="font-weight-black">
+                                        R$ {{ number_format($produto->promocional, 2, ',', '.') }}
+                                    </span>
+                                </p>
                             </div>
                         </div>
-                        <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                            <p class="text-gold text-center m-0 p-1">
-                                <span class="small">
-                                    Por 
-                                </span>
-                                <span class="font-weight-black">
-                                    R$ 24,99
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-5">
-                <a class="d-block mw-100">
-                    <div class="row">
-                        <div class="col">
-                            <!-- 230 X 280  -->
-                            <img src="{{ asset('img/vinho2.png') }}" class="d-block mw-100 mx-auto">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-dark text-center font-weight-bold my-2">
-                                Canepa novíssimo Cabernet Sauvignon 2017
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                        <div class="col-4" style="line-height: 15px;">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="m-0">De</small>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="font-weight-black">R$ 30,40</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                            <p class="text-gold text-center m-0 p-1">
-                                <span class="small">
-                                    Por
-                                </span>
-                                <span class="font-weight-black">
-                                    R$ 24,99
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -272,170 +151,49 @@
     <div class="w-100 d-block bg-light-gold">
         <div class="container">
             <div class="row pt-5">
-                <div class="col-sm-6 col-lg-3 mb-5">
-                    <a class="d-block mw-100">
-                        <div class="row">
-                            <div class="col">
-                                <!-- 230 X 280  -->
-                                <img src="{{ asset('img/produto_exclusivo_1.png') }}" class="d-block mw-100 mx-auto">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="text-dark text-center font-weight-bold my-2">
-                                    Canepa novíssimo Cabernet Sauvignon 2017
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                            <div class="col-4" style="line-height: 15px;">
-                                <div class="row">
-                                    <div class="col">
-                                        <small class="m-0">De</small>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="font-weight-black">R$ 30,40</span>
-                                    </div>
+                @foreach ($produtoExclusive as $produto)
+                    <div class="col-sm-6 col-lg-3 mb-5">
+                        <a href="{{ route('site.tabloide') }}" class="d-block mw-100">
+                            <div class="row">
+                                <div class="col">
+                                    <!-- 230 X 280  -->
+                                    <img src="{{ asset($produto->image) }}" class="d-block mw-100 mx-auto">
                                 </div>
                             </div>
-                            <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                                <p class="text-gold text-center m-0 p-1">
-                                    <span class="small">
-                                        Por
-                                    </span>
-                                    <span class="font-weight-black">
-                                        R$ 24,99
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-5">
-                    <a class="d-block mw-100">
-                        <div class="row">
-                            <div class="col">
-                                <!-- 230 X 280  -->
-                                <img src="{{ asset('img/produto_exclusivo_2.png') }}" class="d-block mw-100 mx-auto">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="text-dark text-center font-weight-bold my-2">
-                                    Canepa novíssimo Cabernet Sauvignon 2017
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                            <div class="col-4" style="line-height: 15px;">
-                                <div class="row">
-                                    <div class="col">
-                                        <small class="m-0">De</small>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="font-weight-black">R$ 30,40</span>
-                                    </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-dark text-center font-weight-bold my-2" style="height: 45px">
+                                        {{ $produto->title }}
+                                    </p>
                                 </div>
                             </div>
-                            <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                                <p class="text-gold text-center m-0 p-1">
-                                    <span class="small">
-                                        Por
-                                    </span>
-                                    <span class="font-weight-black">
-                                        R$ 24,99
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-5">
-                    <a class="d-block mw-100">
-                        <div class="row">
-                            <div class="col">
-                                <!-- 230 X 280  -->
-                                <img src="{{ asset('img/produto_exclusivo_1.png') }}" class="d-block mw-100 mx-auto">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="text-dark text-center font-weight-bold my-2">
-                                    Canepa novíssimo Cabernet Sauvignon 2017
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                            <div class="col-4" style="line-height: 15px;">
-                                <div class="row">
-                                    <div class="col">
-                                        <small class="m-0">De</small>
+                            <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
+                                <div class="col-4" style="line-height: 15px;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <small class="m-0">De</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="font-weight-black">R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="font-weight-black">R$ 30,40</span>
-                                    </div>
+                                <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
+                                    <p class="text-gold text-center m-0 p-1">
+                                        <span class="small">
+                                            Por
+                                        </span>
+                                        <span class="font-weight-black">
+                                            R$ {{ number_format($produto->promocional, 2, ',', '.') }}
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                                <p class="text-gold text-center m-0 p-1">
-                                    <span class="small">
-                                        Por
-                                    </span>
-                                    <span class="font-weight-black">
-                                        R$ 24,99
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-5">
-                    <a class="d-block mw-100">
-                        <div class="row">
-                            <div class="col">
-                                <!-- 230 X 280  -->
-                                <img src="{{ asset('img/produto_exclusivo_2.png') }}" class="d-block mw-100 mx-auto">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="text-dark text-center font-weight-bold my-2">
-                                    Canepa novíssimo Cabernet Sauvignon 2017
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
-                            <div class="col-4" style="line-height: 15px;">
-                                <div class="row">
-                                    <div class="col">
-                                        <small class="m-0">De</small>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="font-weight-black">R$ 30,40</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="align-items-center bg-purple col-8 d-flex justify-content-center rounded">
-                                <p class="text-gold text-center m-0 p-1">
-                                    <span class="small">
-                                        Por
-                                    </span>
-                                    <span class="font-weight-black">
-                                        R$ 24,99
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>            
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
