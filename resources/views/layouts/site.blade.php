@@ -145,20 +145,21 @@
                                 </small>
                             </p>
                         </div>
+
                         <div class="col-6">
                             <p class="text-white line-height-short">
                                 <small>
-                                    <b>Loja 1</b><br>
-                                    Av. Dois de Junho, 2251 <br>
-                                    Centro <br>
-                                    Fone: (69) 3344-3000
+                                    <b>Loja 02</b><br>
+                                    Av. Sete de Setembro, 3536 <br>
+                                    Jardim Clodoado <br>
+                                    Fone: (69) 3441-7692 
                                 </small>
                             </p> 
                             <p class="text-white line-height-short">
                                 <small>
                                     Horário de atendimento: <br>
-                                    2ª à Sábado, das 7h às 21h <br>
-                                    Domingos e Feriados, das 7h às 19h
+                                    2ª à Sábado, das 7h às 20h <br>
+                                    Domingos e Feriados, das 7h às 13h
                                 </small>
                             </p>
                         </div>

@@ -91,11 +91,11 @@
 
     <div class="container-fluid mt-5">
         <div class="row">
-            <a href="{{ route('site.beautyMarket') }}">
-                <picture>
-                    <source media="(max-width: 650px)" srcset="{{ asset('img/banner2_mobile.png') }}">
+            <a href="{{ route('site.beautyMarket') }}" class="w-100 h-100 d-block mx-auto">
+                <picture class="w-100 h-100 d-block mx-auto">
+                    <source media="(max-width: 650px)" srcset="{{ asset('img/banner2_mobile.png') }}" class="w-100 d-block mx-auto">
                     <!-- <source media="(min-width: 465px)" srcset="img_white_flower.jpg"> -->
-                    <img src="{{ asset('img/beauty-market.png') }}" alt="Banner Black Label" class="w-100 h-100 d-block mx-auto">
+                    <img src="{{ asset('img/beauty-market.png') }}" alt="Banner Black Label" class="w-100 d-block mx-auto">
                 </picture>
             </a>
         </div>
