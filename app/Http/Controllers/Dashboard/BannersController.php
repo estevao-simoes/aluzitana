@@ -47,13 +47,14 @@ class BannersController extends Controller
             'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->banner->store('uploads', 'public');
+        $path = $request->banner->store('', 'public');
         
         $storeArray = [
             'path' => $path,
             'title' => $request->title,
             'active' => $request->active ? 1 : 0,
             'category' => $request->category,
+            'external_link' => $request->external_link ? 1 : 0
         ];
 
         if($request->link){

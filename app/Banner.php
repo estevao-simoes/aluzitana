@@ -15,7 +15,7 @@ class Banner extends Model implements Sortable
     ];
 
     protected $fillable = [
-        'path', 'title', 'active', 'category', 'link'
+        'path', 'title', 'active', 'category', 'link', 'external_link'
     ];
 
     public function scopeHome($query){

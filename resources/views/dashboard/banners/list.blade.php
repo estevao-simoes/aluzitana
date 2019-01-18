@@ -101,6 +101,11 @@
                                 <input type="checkbox" name="active" id="active" checked> Ativo
                             </label>
                         </div>
+                        <div class="checkbox">
+                            <label for="#external_link">
+                                <input type="checkbox" name="external_link" id="external_link"> Abrir em outra aba
+                            </label>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="category" value="2">
