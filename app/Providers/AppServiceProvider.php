@@ -26,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
                 'icon' => 'envelope',
                 'label' => Contato::count(),
                 'label_color' => 'warning',
+            ]); 
+            $event->menu->add('CONFIGURAÇÕES');
+            $event->menu->add([
+                'text' => 'Configurações',
+                'icon' => 'cog',
+                'url' => '/dashboard/configuracoes',
             ]);
         });
     }

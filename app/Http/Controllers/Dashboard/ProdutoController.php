@@ -77,7 +77,7 @@ class ProdutoController extends Controller
         $this->validate($request, [
            'title' => 'required|min:5', 
            'valor' => 'required|numeric',
-           'promocional' => 'required|numeric',
+        //    'promocional' => 'numeric',
            'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' 
         ]);
 

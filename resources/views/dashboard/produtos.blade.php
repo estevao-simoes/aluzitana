@@ -39,8 +39,8 @@
                                     @foreach ($regularProducts as $produto)
                                         <tr>
                                             <td>
-                                                <a href="{{ asset($produto->image) }}" data-lightbox="produtos-regulares" data-title="{{ $produto->title }}" style="min-width: 100%;">
-                                                    <img src="{{ asset($produto->image) }}" class="img-responsive" alt="">
+                                                <a href="{{ asset('storage/' . $produto->image) }}" data-lightbox="produtos-regulares" data-title="{{ $produto->title }}" style="min-width: 100%;">
+                                                    <img src="{{ asset('storage/' . $produto->image) }}" class="img-responsive" alt="">
                                                 </a>
                                             </td>
                                             <td style="vertical-align: middle; width: 70%">{{ $produto->title }}</td>
@@ -76,8 +76,8 @@
                                     @foreach ($exclusiveProducts as $produto)
                                         <tr>
                                             <td>
-                                                <a href="{{ asset($produto->image) }}" data-lightbox="produtos-exclusivos" data-title="{{ $produto->title }}" style="min-width: 100%;">
-                                                    <img src="{{ asset($produto->image) }}" class="img-responsive" alt="">
+                                                <a href="{{ asset('storage/' . $produto->image) }}" data-lightbox="produtos-exclusivos" data-title="{{ $produto->title }}" style="min-width: 100%;">
+                                                    <img src="{{ asset('storage/' . $produto->image) }}" class="img-responsive" alt="">
                                                 </a>
                                             </td>
                                             <td style="vertical-align: middle; width: 70%">{{ $produto->title }}</td>

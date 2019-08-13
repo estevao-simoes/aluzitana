@@ -27,6 +27,10 @@ Route::get('/compra-programada', function () {
     return view('site.compraProgramada');
 })->name('site.compraProgramada');
 
+Route::get('/promocao/cada-compra-vale', function(){
+    return view('site.promo');
+});
+
 Route::get('/tabloide', 'TabloideController@index')->name('site.tabloide');
 
 
@@ -50,4 +54,7 @@ Route::group([
     Route::delete('/banner/{banner}', 'Dashboard\BannersController@destroy')->name('dashboard.banners.destroy');
     Route::get('/contatos', 'Dashboard\ContatoController@index')->name('dashboard.contato');
     Route::delete('/contato/{contato}', 'Dashboard\ContatoController@destroy')->name('dashboard.contato.destroy');
+    Route::get('/configuracoes', function(){
+        return 'hello there!';
+    });
 });

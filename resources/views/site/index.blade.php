@@ -8,7 +8,9 @@
                     @foreach ($banners as $banner)
                         @if ($banner->link)
                             <div>
-                                <a href="{{ $banner->link }}" target="_blank">
+                                <a href="{{ $banner->link }}" @if ($banner->external_link)
+                                    target="_blank"
+                                @endif>
                                     <img src="{{ asset($banner->path) }}" alt="{{ $banner->title }}" class="img-fluid">
                                 </a>
                             </div>
@@ -51,6 +53,17 @@
                                 </p>
                             </div>
                         </div>
+                        @if(is_null($produto->promocional))
+                        <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
+                            <div class="align-items-center mx-auto bg-purple col-8 d-flex justify-content-center rounded">
+                                <p class="text-gold text-center m-0 p-1">                                    
+                                    <span class="font-weight-black">
+                                        R$ {{ number_format($produto->valor, 2, ',', '.') }}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        @else
                         <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
                             <div class="col-4" style="line-height: 15px;">
                                 <div class="row">
@@ -75,6 +88,7 @@
                                 </p>
                             </div>
                         </div>
+                        @endif
                     </a>
                 </div>
             @endforeach
@@ -167,6 +181,17 @@
                                     </p>
                                 </div>
                             </div>
+                            @if(is_null($produto->promocional))
+                            <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
+                                <div class="align-items-center mx-auto bg-purple col-8 d-flex justify-content-center rounded">
+                                    <p class="text-gold text-center m-0 p-1">                                    
+                                        <span class="font-weight-black">
+                                            R$ {{ number_format($produto->valor, 2, ',', '.') }}
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            @else
                             <div class="row no-gutters bg-lighter-gray p-2 font-weight-bold">
                                 <div class="col-4" style="line-height: 15px;">
                                     <div class="row">
@@ -191,6 +216,7 @@
                                     </p>
                                 </div>
                             </div>
+                            @endif
                         </a>
                     </div>
                 @endforeach

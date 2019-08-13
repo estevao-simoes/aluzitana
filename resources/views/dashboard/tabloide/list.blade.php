@@ -48,11 +48,11 @@
                             <td>
                                 @foreach ($tabloide->images as $image)
                                     @if ($loop->first)                                    
-                                        <a href="{{ asset($image->path) }}"  data-toggle="tooltip" title="Preview" data-lightbox="galeria-tabloide-{{ $tabloide->id }}">
+                                        <a href="{{ asset('storage/' . $image->path) }}"  data-toggle="tooltip" title="Preview" data-lightbox="galeria-tabloide-{{ $tabloide->id }}">
                                             <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
                                         </a>
                                     @endif
-                                    <a href="{{ asset($image->path) }}" data-lightbox="galeria-tabloide-{{ $tabloide->id }}"></a>
+                                    <a href="{{ asset('storage/' . $image->path) }}" data-lightbox="galeria-tabloide-{{ $tabloide->id }}"></a>
                                 @endforeach
                                 <a href="#" onClick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir o tabloide?')){document.getElementById('delete-tabloide-{{ $tabloide->id }}').submit()}" data-toggle="tooltip" title="Apagar">
                                     <i class="fa fa-times text-danger fa-fw" aria-hidden="true"></i>

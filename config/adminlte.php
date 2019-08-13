@@ -135,12 +135,6 @@ return [
             'url' => '/dashboard/banners',
             'icon' => 'picture-o'
         ],
-        // [
-        //     'text' => 'Usuários',
-        //     'icon' => 'users',
-        //     'can' => 'manage-users',
-        //     'url' => '/dashboard/users',
-        // ]
     ],
 
     /*

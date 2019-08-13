@@ -26,7 +26,7 @@
     <div class="row py-3">
         @foreach ($tabloide->images as $image)
         <div class="col-md-6 py-3">
-            <img src="{{ asset($image->path) }}" class="img-fluid center-block" alt="">
+            <img src="{{ asset('storage/' . $image->path) }}" class="img-fluid center-block" alt="">
         </div>
         @endforeach
     </div>

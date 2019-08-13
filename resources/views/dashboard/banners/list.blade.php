@@ -41,8 +41,8 @@
                                 <tr data-id="{{ $banner->id }}">
                                     <td style="width: 5%; vertical-align: middle"><i class="fa fa-bars my-handle" aria-hidden="true"></i></td>
                                     <td style="width: 25%">
-                                        <a href="{{ asset($banner->path) }}" data-lightbox="banners" style="min-width: 100%;">
-                                            <img src="{{ asset($banner->path) }}" style="height: 15%;" alt=""> 
+                                        <a href="{{ asset('storage/' . $banner->path) }}" data-lightbox="banners" style="min-width: 100%;">
+                                            <img src="{{ asset('storage/' . $banner->path) }}" style="height: 15%;" alt=""> 
                                         </a>
                                     </td>
                                     <td style="vertical-align: middle">

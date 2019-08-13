@@ -29,7 +29,7 @@
         <div class="row">   
             @foreach ($tabloide->images as $image)
                 <div class="col-md-3 col-sm-2">
-                    <img src="{{ asset($image->path) }}" class="img-responsive center-block">
+                    <img src="{{ asset('storage/' . $image->path) }}" class="img-responsive center-block">
                 </div>
             @endforeach
         </div>

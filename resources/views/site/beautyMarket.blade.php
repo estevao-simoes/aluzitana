@@ -2,6 +2,34 @@
 
 @section('css')
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <style>
+
+        .beauty-img{
+            height: auto;
+            max-width: 100%;
+        }
+
+        @media screen and (max-width: 767px){
+            .beauty-img{
+                height: 880px;
+                max-width: fit-content;
+            }
+            #beauty-container{
+                overflow: hidden;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 991px){
+            .beauty-img{
+                height: 1000px;
+                max-width: fit-content;
+            }
+            #beauty-container{
+                overflow: hidden;
+            }
+        }
+
+    </style>
 @endsection
 
 @section('content')
@@ -17,13 +45,23 @@
     <img src="{{ asset('img/mulher.png') }}" alt="" class="img-fluid mx-auto d-block">
 </section>
 
-<section class="w-100 position-relative">
+<section id="beauty-container" class="w-100 position-relative">
     <div class="container position-absolute left-0 right-0 mx-auto">
         <div class="row mt-5">
             <div class="col-md-6">
                 <h3 class="h1 font-beauty text-pink">Completo mix de produtos das melhores e mais desejadas marcas</h3>
                 <p class="text-white text-justify font-weight-normal mt-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nam quod maxime quibusdam exercitationem soluta, vero sequi vel quas laborum provident perspiciatis saepe, alias modi accusantium distinctio, nemo dolore voluptatibus mollitia totam unde corrupti? Obcaecati enim magnam odit earum ullam eveniet, rem labore recusandae, quos quis ducimus debitis mollitia temporibus!
+                    Um espaço pensado exclusivamente para a sua beleza. E com uma enorme variedade de produtos das melhores marcas nacionais e importadas. Assim é o Beauty Market.
+                    Se você gosta de maquiagens, perfumes, esmaltes e de lançamentos das mais reconhecidas linhas de cosméticos, aqui é o seu lugar. O Beauty Market está localizado dentro da  Loja 01 Luzitana, na Av. Dois de Junho, 2.251.
+                    O completo mix de produtos vai te surpreender.
+                    E você ainda conta com a praticidade de encontrar tudo isso bem aqui no seu supermercado.
+                </p>
+                <p class="text-white text-justify font-weight-normal mt-4">
+                    Beauty Market.
+                    Nosso espaço. Sua beleza.
+                </p>
+                <p class="text-white text-justify font-weight-normal mt-4">
+                    Se tem tudo pra você, tem Luzitana.                
                 </p>
             </div>
             <div class="col-md-6 position-relative d-none d-md-block">
@@ -31,7 +69,7 @@
             </div>
         </div>
     </div>
-    <img src="{{ asset('img/maquiagem.png') }}" alt="" class="img-fluid mx-auto d-block">
+    <img src="{{ asset('img/maquiagem.png') }}" alt="" class="mx-auto d-block beauty-img">
 </section>
 @endsection
 
